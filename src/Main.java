@@ -25,9 +25,8 @@ public class Main {
             menu();
         }
     }
-
     public void addBugNew () {
-        Bug bug = new Bug();
+        Bug bug = new Bug("", "", "", "", "");
         bugsList.add(bug);
         System.out.println("Введите название бага: ");
         bug.title = scanner.nextLine();
