@@ -44,10 +44,10 @@ public class Main {
         menu();
     }
     public void bugsList () {
-        for (Bug el : bugsList)
+        for (Bug el : bugsList) {
             System.out.println(el.title + "; " + el.summary + "; " + el.severity + "; " + el.priority + "; " + el.steps);
+        }
         System.out.println();
         menu();
-
     }
 }
