@@ -5,4 +5,8 @@ public class Bug {
     public String priority;
     public String severity;
     public String steps;
+
+    public String makeString() {
+        return " " + title + "; " + summary + "; " + priority + "; " + severity + "; " + steps;
+    }
 }

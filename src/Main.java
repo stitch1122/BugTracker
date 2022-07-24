@@ -10,7 +10,7 @@ public class Main {
         menu.menu();
     }
     public void menu() {
-        System.out.println("Что вы хотите сделать? 1 - добавить баг, 2 - посмотреть все баги, 0 - выход");
+        System.out.println("Р§С‚Рѕ РІС‹ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ? 1 - РґРѕР±Р°РІРёС‚СЊ Р±Р°Рі, 2 - РїРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ Р±Р°РіРё, 0 - РІС‹С…РѕРґ");
         int a = scanner.nextInt();
         scanner.nextLine();
         if (a == 1) {
@@ -18,10 +18,10 @@ public class Main {
         } else if (a == 2) {
             bugsList();
         } else if (a == 0) {
-            System.out.println("Программа завершена");
+            System.out.println("РџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РµРЅР°");
             System.exit(0);
         } else {
-            System.out.println("Введите цифру от 0 до 2");
+            System.out.println("Р’РІРµРґРёС‚Рµ С†РёС„СЂСѓ РѕС‚ 0 РґРѕ 2");
             menu();
         }
     }
@@ -29,23 +29,23 @@ public class Main {
     public void addBugNew () {
         Bug bug = new Bug();
         bugsList.add(bug);
-        System.out.println("Введите название бага: ");
+        System.out.println("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р±Р°РіР°: ");
         bug.title = scanner.nextLine();
-        System.out.println("Введите краткое описание бага: ");
+        System.out.println("Р’РІРµРґРёС‚Рµ РєСЂР°С‚РєРѕРµ РѕРїРёСЃР°РЅРёРµ Р±Р°РіР°: ");
         bug.summary = scanner.nextLine();
-        System.out.println("Введите серьезность: ");
+        System.out.println("Р’РІРµРґРёС‚Рµ СЃРµСЂСЊРµР·РЅРѕСЃС‚СЊ: ");
         bug.severity = scanner.nextLine();
-        System.out.println("Введите приоритет: ");
+        System.out.println("Р’РІРµРґРёС‚Рµ РїСЂРёРѕСЂРёС‚РµС‚: ");
         bug.priority = scanner.nextLine();
-        System.out.println("Введите шаги: ");
+        System.out.println("Р’РІРµРґРёС‚Рµ С€Р°РіРё: ");
         bug.steps = scanner.nextLine();
-        System.out.println("Новый баг создан: \n" + bug.title + "; " + bug.summary + "; " + bug.severity + "; " + bug.priority + "; " + bug.steps);
+        System.out.println("РќРѕРІС‹Р№ Р±Р°Рі СЃРѕР·РґР°РЅ: \n" + bug.makeString());
         System.out.println();
         menu();
     }
     public void bugsList () {
         for (Bug el : bugsList) {
-            System.out.println(el.title + "; " + el.summary + "; " + el.severity + "; " + el.priority + "; " + el.steps);
+            System.out.println(el.makeString());
         }
         System.out.println();
         menu();
