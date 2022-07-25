@@ -1,10 +1,10 @@
 
 public class Bug {
-    public String title;
-    public String summary;
-    public String severity;
-    public String priority;
-    public String steps;
+    private String title;
+    private String summary;
+    private String severity;
+    private String priority;
+    private String steps;
     public Bug(String title, String summary, String severity, String priority, String steps){
         this.title = title;
         this.summary = summary;

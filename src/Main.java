@@ -26,18 +26,18 @@ public class Main {
         }
     }
     public void addBugNew () {
-        Bug bug = new Bug("", "", "", "", "");
-        bugsList.add(bug);
         System.out.println("Введите название бага: ");
-        bug.title = scanner.nextLine();
+        String title = scanner.nextLine();
         System.out.println("Введите краткое описание бага: ");
-        bug.summary = scanner.nextLine();
+        String summary = scanner.nextLine();
         System.out.println("Введите серьезность: ");
-        bug.severity = scanner.nextLine();
+        String severity = scanner.nextLine();
         System.out.println("Введите приоритет: ");
-        bug.priority = scanner.nextLine();
+        String priority = scanner.nextLine();
         System.out.println("Введите шаги: ");
-        bug.steps = scanner.nextLine();
+        String steps = scanner.nextLine();
+        Bug bug = new Bug(title, summary, severity, priority, steps);
+        bugsList.add(bug);
         System.out.println("Новый баг создан: \n" + bug.makeString());
         System.out.println();
         menu();
