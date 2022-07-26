@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class Main {
     public ArrayList<Issue> issueList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         System.out.println("Bug tracker");
         Main menu = new Main();
         menu.menu();
     }
+
     public void menu() {
         System.out.println("Что вы хотите сделать? 1 - добавить баг, 2 - добавить улучшение, 3 - посмотреть все баги, 0 - выход");
         int a = scanner.nextInt();
@@ -26,6 +28,7 @@ public class Main {
             menu();
         }
     }
+
     public void addBugNew () {
         System.out.println("Введите название бага: ");
         String title = scanner.nextLine();
@@ -43,6 +46,7 @@ public class Main {
         System.out.println();
         menu();
     }
+
     public void addEnhancementNew() {
         System.out.println("Введите название улучшения: ");
         String title = scanner.nextLine();
@@ -56,6 +60,7 @@ public class Main {
         System.out.println();
         menu();
     }
+
     public void issueList () {
         for (Issue el : issueList) {
             System.out.println(el.makeString());

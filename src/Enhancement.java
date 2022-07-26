@@ -5,6 +5,7 @@ public class Enhancement extends Issue {
         super(title, summary);
         this.donation = donation;
     }
+
     @Override
     public String makeString() {
         return super.makeString() + donation;
