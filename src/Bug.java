@@ -13,6 +13,11 @@ public class Bug extends Issue{
 
     @Override
     public String makeString() {
-        return super.makeString() + severity + "; " + priority + "; " + steps;
+        this.title = title;
+        this.summary = summary;
+        this.severity = severity;
+        this.priority = priority;
+        this.steps = steps;
+        return title + "; " + summary + "; " + severity + "; " + priority + "; " + steps;
     }
 }

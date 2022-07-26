@@ -16,7 +16,7 @@ public class Main {
         scanner.nextLine();
         if (a == 1) {
             addBugNew();
-        } else if (a ==2){
+        } else if (a ==2) {
             addEnhancementNew();
         } else if (a == 3) {
             issueList();

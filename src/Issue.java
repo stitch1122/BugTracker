@@ -1,13 +1,11 @@
-﻿public class Issue {
-    private String title;
-    private String summary;
+public abstract class Issue {
+    protected String title;
+    protected String summary;
 
     public Issue (String title, String summary) {
         this.title = title;
         this.summary = summary;
     }
 
-    public String makeString() {
-        return title + "; " + summary + "; ";
-    }
+    public abstract String makeString();
 }

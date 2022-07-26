@@ -8,6 +8,9 @@ public class Enhancement extends Issue {
 
     @Override
     public String makeString() {
-        return super.makeString() + donation;
+        this.title = title;
+        this.summary = summary;
+        this.donation = donation;
+        return title + "; " + summary + "; " + donation;
     }
 }
