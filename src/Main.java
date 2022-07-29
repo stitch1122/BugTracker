@@ -3,6 +3,10 @@ import java.util.Scanner;
 public class Main {
     public ArrayList<Issue> issueList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
+    private final int CONSTANT_ADDBUG = 1;
+    private final int CONSTANT_ADDENHANCEMENT = 2;
+    private final int CONSTANT_SHOWALL = 3;
+    private final int CONSTANT_EXIT = 0;
 
     public static void main(String[] args) {
         System.out.println("Bug tracker");
@@ -11,16 +15,16 @@ public class Main {
     }
 
     public void menu() {
-        System.out.println("Что вы хотите сделать? 1 - добавить баг, 2 - добавить улучшение, 3 - посмотреть все баги, 0 - выход");
+        System.out.println("Что вы хотите сделать? 1 - добавить баг, 2 - добавить улучшение, 3 - посмотреть все баги и улучшения, 0 - выход");
         int a = scanner.nextInt();
         scanner.nextLine();
-        if (a == 1) {
+        if (a == CONSTANT_ADDBUG) {
             addBugNew();
-        } else if (a ==2) {
+        } else if (a == CONSTANT_ADDENHANCEMENT) {
             addEnhancementNew();
-        } else if (a == 3) {
+        } else if (a == CONSTANT_SHOWALL) {
             issueList();
-        } else if (a == 0) {
+        } else if (a == CONSTANT_EXIT) {
             System.out.println("Программа завершена");
             System.exit(0);
         } else {
