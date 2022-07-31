@@ -39,12 +39,22 @@ public class Main {
         System.out.println("Введите краткое описание бага: ");
         String summary = scanner.nextLine();
         System.out.println("Введите серьезность: ");
+        for (Level el : Level.values()) {
+            System.out.print(el + " ");
+        }
         String severity = scanner.nextLine();
+        Level severityLev;
+        severityLev = Level.valueOf(severity);
         System.out.println("Введите приоритет: ");
+        for (Level el : Level.values()) {
+            System.out.print(el + " ");
+        }
         String priority = scanner.nextLine();
+        Level priorityLev;
+        priorityLev = Level.valueOf(priority);
         System.out.println("Введите шаги: ");
         String steps = scanner.nextLine();
-        Bug bug = new Bug(title, summary, severity, priority, steps);
+        Bug bug = new Bug(title, summary, severityLev.name(), priorityLev.name(), steps);
         issueList.add(bug);
         System.out.println("Новый баг создан: \n" + bug.makeString());
         System.out.println();
