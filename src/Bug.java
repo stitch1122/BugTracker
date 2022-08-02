@@ -1,10 +1,10 @@
 
 public class Bug extends Issue{
-    private String severity;
-    private String priority;
+    private Level severity;
+    private Level priority;
     private String steps;
 
-    public Bug(String title, String summary, String severity, String priority, String steps){
+    public Bug(String title, String summary, Level severity, Level priority, String steps){
         super(title, summary);
         this.severity = severity;
         this.priority = priority;
