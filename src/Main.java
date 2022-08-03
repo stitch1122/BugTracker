@@ -34,7 +34,6 @@ public class Main {
     }
 
     public void addBugNew () {
-        try {
         System.out.println("Введите название бага: ");
         String title = scanner.nextLine();
         System.out.println("Введите краткое описание бага: ");
@@ -45,6 +44,12 @@ public class Main {
         }
         String severity = scanner.nextLine();
         Level severityLev;
+            try {
+                Level.valueOf(severity);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Вы ввели неправильное значение");
+                addBugNew();
+            }
         severityLev = Level.valueOf(severity);
         System.out.println("Введите приоритет: ");
         for (Level el : Level.values()) {
@@ -52,6 +57,12 @@ public class Main {
         }
         String priority = scanner.nextLine();
         Level priorityLev;
+            try {
+                Level.valueOf(priority);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Вы ввели неправильное значение");
+                addBugNew();
+            }
         priorityLev = Level.valueOf(priority);
         System.out.println("Введите шаги: ");
         String steps = scanner.nextLine();
@@ -60,12 +71,6 @@ public class Main {
         System.out.println("Новый баг создан: \n" + bug.makeString());
         System.out.println();
         menu();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            System.err.println("Вы ввели неправильное значение");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 
     public void addEnhancementNew() {
