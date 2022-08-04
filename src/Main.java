@@ -1,39 +1,36 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
-    public ArrayList<Issue> issueList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
-    private final int CONSTANT_ADDBUG = 1;
-    private final int CONSTANT_ADDENHANCEMENT = 2;
-    private final int CONSTANT_SHOWALL = 3;
-    private final int CONSTANT_EXIT = 0;
+    public static ArrayList<Issue> issueList = new ArrayList<>();
+    public static Scanner scanner = new Scanner(System.in);
+    private static final int CONSTANT_ADDBUG = 1;
+    private static final int CONSTANT_ADDENHANCEMENT = 2;
+    private static final int CONSTANT_SHOWALL = 3;
+    private static final int CONSTANT_EXIT = 0;
 
     public static void main(String[] args) {
         System.out.println("Bug tracker");
-        Main menu = new Main();
-        menu.menu();
+        int command;
+        do {
+            System.out.println("Что вы хотите сделать? 1 - добавить баг, 2 - добавить улучшение, 3 - посмотреть все баги и улучшения, 0 - выход");
+            command = scanner.nextInt();
+            scanner.nextLine();
+            if (command == CONSTANT_ADDBUG) {
+                addBugNew();
+            } else if (command == CONSTANT_ADDENHANCEMENT) {
+                addEnhancementNew();
+            } else if (command == CONSTANT_SHOWALL) {
+                issueList();
+            } else if (command == CONSTANT_EXIT) {
+                System.out.println("Программа завершена");
+                System.exit(0);
+            } else {
+                System.out.println("Введите цифру от 0 до 3");
+            }
+        } while (command != CONSTANT_EXIT);
     }
 
-    public void menu() {
-        System.out.println("Что вы хотите сделать? 1 - добавить баг, 2 - добавить улучшение, 3 - посмотреть все баги и улучшения, 0 - выход");
-        int a = scanner.nextInt();
-        scanner.nextLine();
-        if (a == CONSTANT_ADDBUG) {
-            addBugNew();
-        } else if (a == CONSTANT_ADDENHANCEMENT) {
-            addEnhancementNew();
-        } else if (a == CONSTANT_SHOWALL) {
-            issueList();
-        } else if (a == CONSTANT_EXIT) {
-            System.out.println("Программа завершена");
-            System.exit(0);
-        } else {
-            System.out.println("Введите цифру от 0 до 3");
-            menu();
-        }
-    }
-
-    public void addBugNew () {
+    public static void addBugNew () {
         System.out.println("Введите название бага: ");
         String title = scanner.nextLine();
         System.out.println("Введите краткое описание бага: ");
@@ -44,12 +41,12 @@ public class Main {
         }
         String severity = scanner.nextLine();
         Level severityLev;
-            try {
-                Level.valueOf(severity);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Вы ввели неправильное значение");
-                addBugNew();
-            }
+        try {
+            Level.valueOf(severity);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Вы ввели неправильное значение");
+            addBugNew();
+        }
         severityLev = Level.valueOf(severity);
         System.out.println("Введите приоритет: ");
         for (Level el : Level.values()) {
@@ -57,12 +54,12 @@ public class Main {
         }
         String priority = scanner.nextLine();
         Level priorityLev;
-            try {
-                Level.valueOf(priority);
-            } catch (IllegalArgumentException e) {
+        try {
+            Level.valueOf(priority);
+        } catch (IllegalArgumentException e) {
                 System.out.println("Вы ввели неправильное значение");
                 addBugNew();
-            }
+        }
         priorityLev = Level.valueOf(priority);
         System.out.println("Введите шаги: ");
         String steps = scanner.nextLine();
@@ -70,10 +67,9 @@ public class Main {
         issueList.add(bug);
         System.out.println("Новый баг создан: \n" + bug.makeString());
         System.out.println();
-        menu();
     }
 
-    public void addEnhancementNew() {
+    public static void addEnhancementNew() {
         System.out.println("Введите название улучшения: ");
         String title = scanner.nextLine();
         System.out.println("Введите краткое описание улучшения: ");
@@ -84,14 +80,12 @@ public class Main {
         issueList.add(enhancement);
         System.out.println("Новое улучшение создано: \n" + enhancement.makeString());
         System.out.println();
-        menu();
     }
 
-    public void issueList () {
+    public static void issueList () {
         for (Issue el : issueList) {
             System.out.println(el.makeString());
         }
         System.out.println();
-        menu();
     }
 }
