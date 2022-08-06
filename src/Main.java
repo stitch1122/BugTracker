@@ -45,7 +45,21 @@ public class Main {
             Level.valueOf(severity);
         } catch (IllegalArgumentException e) {
             System.out.println("Вы ввели неправильное значение");
-            addBugNew();
+            boolean invalid = true;
+            do {
+                System.out.println("Введите правильное значение");
+                severity = scanner.nextLine();
+                if (severity.equals("LOW")) {
+                    invalid = false;
+                }
+                if (severity.equals("HIGH")) {
+                    invalid = false;
+                }
+                if (severity.equals("MEDIUM")) {
+                    invalid = false;
+                }
+            }
+            while (invalid) ;
         }
         severityLev = Level.valueOf(severity);
         System.out.println("Введите приоритет: ");
@@ -58,7 +72,21 @@ public class Main {
             Level.valueOf(priority);
         } catch (IllegalArgumentException e) {
                 System.out.println("Вы ввели неправильное значение");
-                addBugNew();
+            boolean invalid = true;
+            do {
+                System.out.println("Введите правильное значение");
+                priority = scanner.nextLine();
+                if (priority.equals("LOW")) {
+                    invalid = false;
+                }
+                if (priority.equals("HIGH")) {
+                    invalid = false;
+                }
+                if (priority.equals("MEDIUM")) {
+                    invalid = false;
+                }
+            }
+            while (invalid) ;
         }
         priorityLev = Level.valueOf(priority);
         System.out.println("Введите шаги: ");
