@@ -40,13 +40,13 @@ public class Main {
             System.out.print(el + " ");
         }
         String severity = scanner.nextLine();
-        Level severityLev = Level.valueOf(readLevel(severity));
+        Level severityLev = readLevel(severity);
         System.out.println("Введите приоритет: ");
         for (Level el : Level.values()) {
             System.out.print(el + " ");
         }
         String priority = scanner.nextLine();
-        Level priorityLev = Level.valueOf(readLevel(priority));
+        Level priorityLev = readLevel(priority);
         System.out.println("Введите шаги: ");
         String steps = scanner.nextLine();
         Bug bug = new Bug(title, summary, severityLev, priorityLev, steps);
@@ -75,7 +75,7 @@ public class Main {
         System.out.println();
     }
 
-    public static String readLevel (String stringLevel) {
+    public static Level readLevel (String stringLevel) {
         try {
             Level.valueOf(stringLevel);
         } catch (IllegalArgumentException e) {
@@ -89,6 +89,6 @@ public class Main {
                 stringLevel.equals("HIGH") &&!
                 stringLevel.equals("MEDIUM");
             } while (invalid);
-        } return stringLevel;
+        } return Level.valueOf(stringLevel);
     }
 }
