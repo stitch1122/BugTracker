@@ -30,7 +30,7 @@ public class Main {
         } while (command != CONSTANT_EXIT);
     }
 
-    public static void addBugNew () {
+    public static void addBugNew() {
         System.out.println("Введите название бага: ");
         String title = scanner.nextLine();
         System.out.println("Введите краткое описание бага: ");
@@ -68,27 +68,30 @@ public class Main {
         System.out.println();
     }
 
-    public static void issueList () {
+    public static void issueList() {
         for (Issue el : issueList) {
             System.out.println(el.makeString());
         }
         System.out.println();
     }
 
-    public static Level readLevel (String stringLevel) {
+    public static Level readLevel(String stringLevel) {
         try {
             Level.valueOf(stringLevel);
         } catch (IllegalArgumentException e) {
             System.out.println("Вы ввели неправильное значение");
-            boolean invalid;
+            boolean invalid = true;
             do {
                 System.out.println("введите значение еще раз");
                 stringLevel = scanner.nextLine();
-                invalid =!
-                stringLevel.equals("LOW") && !
-                stringLevel.equals("HIGH") &&!
-                stringLevel.equals("MEDIUM");
+                for (Level el : Level.values()) {
+                    if (stringLevel.equals(el.name())) {
+                        invalid = false;
+                        break;
+                    }
+                }
             } while (invalid);
-        } return Level.valueOf(stringLevel);
+        }
+        return Level.valueOf(stringLevel);
     }
 }
