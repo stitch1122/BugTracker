@@ -77,21 +77,18 @@ public class Main {
 
     public static Level readLevel(String stringLevel) {
         try {
-            Level.valueOf(stringLevel);
+            return Level.valueOf(stringLevel);
         } catch (IllegalArgumentException e) {
             System.out.println("Вы ввели неправильное значение");
-            boolean invalid = true;
-            do {
+            while (true) {
                 System.out.println("введите значение еще раз");
                 stringLevel = scanner.nextLine();
                 for (Level el : Level.values()) {
                     if (stringLevel.equals(el.name())) {
-                        invalid = false;
-                        break;
+                        return Level.valueOf(stringLevel);
                     }
                 }
-            } while (invalid);
+            }
         }
-        return Level.valueOf(stringLevel);
     }
 }
